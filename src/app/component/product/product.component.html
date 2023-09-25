@@ -1,0 +1,47 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+        <a (click)="filter('')">
+            <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt=""/>
+            <h6>All products</h6>
+        </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img style="width:48px; margin-top:5px;" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt=""/>
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img  style="width:38px; margin-top:5px;" src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg" alt=""/>
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('jewelery')">
+                <img  src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" alt=""/>
+                <h6>Jewllery</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space:nowrap; overflow:hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.title}}</h5>
+                <p style="white-space:nowrap; overflow:hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+                <p><strong>Price:</strong>${{item.price}}</p>
+                <button class="btn btn-primary" (click)="addtocart(item)">Add to cart</button>
+    
+            </div>
+        </ng-container>
+        
+
+    </div>
+
+</div>
+
